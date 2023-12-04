@@ -241,7 +241,7 @@ def checkOperation(frame):
 # Example usage
 def main():
     capture_mode = 1  # 0 for video capture, 1 for file processing
-    url = 'http://10.243.77.139:4747/video'
+    url = '***********"
     #cv2.namedWindow('Original Image', cv2.WINDOW_NORMAL)
     #cv2.namedWindow('ROI', cv2.WINDOW_NORMAL)
     num_frames = 100

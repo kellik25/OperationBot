@@ -29,11 +29,6 @@ def connect_wifi(ssid, password):
         time.sleep(1)
     print('Connection successful')
     print(station.ifconfig())
-    
-connect_wifi(ssid, password)
-broker_address = "broker.hivemq.com"
-client = mqtt.MQTTClient("Kelli's Pico", broker_address, keepalive=10000,port=1883)
-client.connect()
 
 def IK(Xe, Ye):
     angles_list = []
@@ -136,15 +131,6 @@ def main():
     home = IK(1.8, 3)[0]
     home[0] = 90
     set_servo_positions(home, 0.01)
-    #suctionOn()
-    time.sleep(1)
-    #lowerArm(7, 3, 90)
-    #suctionOn()
-    #time.sleep(1)
-    #raiseArm(7, 1, 90)
-    #suctionOff()
-    #raiseArm(7, 2, 90)
-    #raiseArm(7, 3, 90)
     client.set_callback(whenCalled)
     client.subscribe("mode")
     client.subscribe("radius")
@@ -156,5 +142,8 @@ def main():
     except Exception as e:
         print(e)
         
-#connect_wifi(ssid, password)
+connect_wifi(ssid, password)
+broker_address = "broker.hivemq.com"
+client = mqtt.MQTTClient("Kelli's Pico", broker_address, keepalive=10000,port=1883)
+client.connect()        
 main()
